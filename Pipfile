@@ -1,0 +1,39 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+pylint-django = "*"
+pytest = "*"
+pytest-django = "*"
+pytest-pythonpath = "*"
+django-extensions = "*"
+ipython = "*"
+
+[packages]
+swagger-spec-validator = "*"
+packaging = "*"
+pyyaml = "*"
+drf-yasg = "*"
+xlrd = "*"
+numpy = "*"
+pandas = "*"
+pytz = "*"
+boto3 = "*"
+pillow = "*"
+psycopg2 = "*"
+redis = "*"
+Django = "*"
+django-configurations = "*"
+django-rest-framework = "*"
+django-cachalot = "*"
+django-storages = "*"
+celery = "*"
+django-celery-beat = "*"
+django-celery-results = "*"
+gunicorn = "*"
+
+[requires]
+python_version = "3.7"

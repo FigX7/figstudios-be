@@ -1,0 +1,29 @@
+{
+    "family": "success-gateway-gunicorn",
+    "networkMode": "awsvpc",
+    "containerDefinitions": [
+        {
+            "name": "success-gateway-gunicorn",
+            "image": "176209361614.dkr.ecr.us-east-1.amazonaws.com/success-gateway",
+            "cpu": 512,
+            "memory": 512,
+            "portMappings": [
+                {
+                    "containerPort": 8000,
+                    "hostPort": 8000,
+                    "protocol": "tcp"
+                }
+            ],
+            "command": ["/start.sh"],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "success-gateway",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "success-gateway"
+                }
+            },
+            "essential": true
+        }
+    ]
+}

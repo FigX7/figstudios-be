@@ -1,5 +1,0 @@
-#!/bin/sh
-
-# use the pipenv command from within a docker container from shell on host
-
-docker-compose exec figstudios-be-local sh -c "cd /code/application && pipenv run pytest $@"

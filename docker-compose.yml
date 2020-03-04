@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+
+  # figstudios-postgres-local:
+  #   restart: always
+  #   image: postgres
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - ./docker/local/postgres/data:/var/lib/postgresql/data
+  #   ports:
+  #     - 5437:5432
+
+  # figstudios-redis-local:
+  #   restart: always
+  #   image: redis
+
+  figstudios-be-local:
+    image: figstudios-be-local
+    build:
+      context: .
+      dockerfile: ./docker/local/django/Dockerfile
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    entrypoint: /code/docker/local/django/start.sh
+

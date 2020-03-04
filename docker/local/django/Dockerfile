@@ -1,0 +1,36 @@
+FROM python:3.7-alpine
+
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+
+# development dependencies
+RUN apk update && apk add python3-dev libgcc libstdc++ gcc musl-dev postgresql-dev netcat-openbsd py-pip git
+
+# image dependencies
+RUN apk add jpeg-dev zlib-dev freetype-dev lcms2-dev openjpeg-dev tiff-dev tk-dev tcl-dev
+
+# Pandas dependencies
+RUN apk add --no-cache g++ && \
+    ln -s /usr/include/locale.h /usr/include/xlocale.h
+
+RUN apk add libstdc++ py3-dateutil py3-numpy py3-tz 
+
+
+
+# RUN apk add --no-cache g++ && \
+#     ln -s /usr/include/locale.h /usr/include/xlocale.h
+
+# update pip and install pipenv
+RUN pip install -U pip
+RUN pip install pipenv
+
+
+# setup path for codebase
+RUN mkdir -p /code
+WORKDIR /code
+
+# copy pipfile and install dependencies
+COPY Pipfile Pipfile.lock /code/
+#RUN pipenv install -e git+https://github.com/facebookresearch/fastText.git#egg=fasttext
+RUN pipenv install --dev

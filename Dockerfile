@@ -35,7 +35,6 @@ ADD . /code
 # EXPOSE 8000
 #RUN pipenv install -e git+https://github.com/facebookresearch/fastText.git#egg=fasttext
 RUN pipenv install --dev
-
-# ENTRYPOINT ["/start.sh"]
+EXPOSE 8000
 
 # code is linked in /code via volume

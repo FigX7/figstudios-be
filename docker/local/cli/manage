@@ -9,4 +9,4 @@ then
     ARGS="help"
 fi
 
-docker-compose exec figstudios-be-local sh -c "cd /code/application && pipenv run python manage.py $ARGS"
+docker-compose exec figstudios-be sh -c "cd /code/application && pipenv run python manage.py $ARGS"

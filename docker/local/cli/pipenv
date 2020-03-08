@@ -4,4 +4,4 @@
 
 ARGS="$@"
 
-docker-compose exec figstudios-be-local sh -c "cd /code/application && pipenv $ARGS"
+docker-compose exec figstudios-be sh -c "cd /code/application && pipenv $ARGS"

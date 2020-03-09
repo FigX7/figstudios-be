@@ -3,6 +3,9 @@ FROM python:3.7-alpine
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+
+
+EXPOSE 8000
 # use testing repo for hdf5
 RUN echo "http://mirror1.hs-esslingen.de/pub/Mirrors/alpine/v3.8/main" >> /etc/apk/repositories; \
     echo "http://mirror1.hs-esslingen.de/pub/Mirrors/alpine/v3.8/community" >> /etc/apk/repositories; \
@@ -32,9 +35,10 @@ WORKDIR /code
 
 ADD . /code
 
+ENTRYPOINT [ "./docker/local/django/start.sh" ]
 # EXPOSE 8000
 #RUN pipenv install -e git+https://github.com/facebookresearch/fastText.git#egg=fasttext
-RUN pipenv install --dev
-EXPOSE 8000
+# RUN pipenv install --dev
+
 
 # code is linked in /code via volume

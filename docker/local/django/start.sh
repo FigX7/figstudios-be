@@ -1,5 +1,9 @@
 #!/bin/sh
+# install dependencies
+cd /code
 
+
+pipenv install --dev
 # change to application root
 cd /code/application
 

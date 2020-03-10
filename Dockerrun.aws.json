@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-    "Name": "figx7/figstudios-be",
+    "Name": "figx7/figstudios-be-base:latest",
     "Update": "true"
     },
     "Ports": [

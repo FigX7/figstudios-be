@@ -14,7 +14,7 @@ services:
 
   figstudios-be:
     restart: always
-    image: figx7/figstudios-be
+    image: figx7/figstudios-be-base
     build:
       context: .
       dockerfile: ./Dockerfile
